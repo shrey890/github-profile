@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Github Profile</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.css" rel="stylesheet" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .container {
+      background-color: tan;
+      padding: 20px 40px;
+      border-radius: 1rem;
+    }
+    .container h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .container a {
+      text-decoration: none;
+      color: lightblue;
+    }
+    .btn {
+      cursor: pointer;
+      display: inline-block;
+      width: 100%;
+      background: lightblue;
+      padding: 15px;
+      font-family: serif;
+      font-size: 16px;
+      border: 0;
+      border-radius: 1rem;
+    }
+    .btn:focus {
+      outline: 0;
+    }
+    .btn:active {
+      transform: scale(0.98);
+    }
+    .text {
+      margin-top: 30px;
+    }
+    .form-control {
+      position: relative;
+      margin: 20px 0 40px;
+      width: 300px;
+    }
+    .form-control input {
+      background-color: transparent;
+      border: 0;
+      border-bottom: 2px white solid;
+      display: block;
+      width: 100%;
+      padding: 15px 0;
+      font-size: 18px;
+      color: wheat;
+    }
+    .form-control input:focus,
+    .form-control input:valid {
+      outline: 0;
+      border-bottom-color: lavender;
+    }
+    .form-control label {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      pointer-events: none;
+    }
+    .form-control label span {
+      display: inline-block;
+      font-size: 18px;
+      min-width: 5px;
+      transition: 0.3s cubic-bezier(0.68, 0.55, 0.265, 1.55);
+    }
+    .form-control input:focus + label span,
+    .form-control input:valid + label span {
+      color: chocolate;
+      transform: translateY(-30px);
+    }
+    .color-change-3x {
+      -webkit-animation: color-change-3x 4s linear infinite alternate both;
+      animation: color-change-3x 4s linear infinite alternate both;
+    }
+    @keyframes color-change-3x {
+      0% {
+        background: #19dcea;
+      }
+      50% {
+        background: #b22cff;
+      }
+      100% {
+        background: #ea2222;
+      }
+    }
+    .text-focus-in {
+      -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+      animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    }
+    @keyframes text-focus-in {
+      0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+      }
+    }
+    .text-shadow-pop-top {
+      -webkit-animation: text-shadow-pop-top 0.6s both;
+      animation: text-shadow-pop-top 0.6s both;
+    }
+    @keyframes text-shadow-pop-top {
+      0% {
+        /* text-shadow: 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555, 0 0 #555555; */
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      100% {
+        /* text-shadow: 0 -1px #555555, 0 -2px #555555, 0 -3px #555555, 0 -4px #555555, 0 -5px #555555, 0 -6px #555555, 0 -7px #555555, 0 -8px #555555; */
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+      }
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: monospace;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    div::first-letter {
+      color: #ea2222;
+      font-size: larger;
+    }
+    input:focus {
+      color: rgb(0, 243, 202);
+      text-shadow: 1px 1px 1px red;
+    }
+    .user-form-input {
+      width: 100%;
+      display: block;
+      background-color: #ea2222 !important;
+      border: none;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+    .card {
+      max-width: 800px;
+      background: rgba(126, 211, 33, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(3.5px);
+      -webkit-backdrop-filter: blur(3.5px);
+      border-radius: 73% 27% 86% 14% / 15% 82% 18% 85%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      padding: 3rem;
+      margin: 0 1.5rem;
+    }
+    .avatar {
+      border-radius: 50%;
+      border: 3px groove #000000;
+      height: 150px;
+      width: 150px;
+    }
+    .user-info {
+      color: rgb(255, 255, 255);
+      margin-left: 2rem;
+    }
+    .user-info h2 {
+      margin-top: 0;
+    }
+    .user-info ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+      max-width: 400px;
+    }
+    .user-info ul li {
+      display: flex;
+      align-items: center;
+    }
+    .user-info ul li strong {
+      font-size: 0.6rem;
+      margin-left: 0.3rem;
+    }
+    .repo {
+      text-decoration: none;
+      color: white;
+      background-color: #000000;
+      border-radius: 0.2rem;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+    @media (max-width: 500px) {
+      .card {
+        flex-direction: column;
+        align-items: center;
+      }
+      .user-form {
+        max-width: 400px;
+      }
+      .user-info ul li strong {
+        font-size: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body class="color-change-3x">
+<form class="user-form" id="form">
+  <div class="form-control">
+    <input type="text" required class="user-form-input" id="search" />
+    <label for="search" class="fas fa-search"> <i>Search a github user</i></label>
+  </div>
+</form>
+<main id="main">
+  <div class="card">
+    <div>
+      <img
+        src="https://randomuser.me/api/portraits/men/42.jpg"
+        alt="user"
+        class="avatar"
+      />
+    </div>
+    <div class="user-info">
+      <h2 class="text-focus-in">john doe</h2>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <ul class="text-shadow-pop-top">
+        <li>200 <strong>followers</strong></li>
+        <li>300 <strong>following</strong></li>
+        <li>20 <strong>repos</strong></li>
+      </ul>
+      <div id="repos"></div>
+    </div>
+  </div>
+</main>
+<footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
+  <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+      <div class="sm:flex sm:items-center sm:justify-between">
+          <a href="https://shreyx.netlify.app/" target="_blank" class="flex items-center mb-4 sm:mb-0">
+              
+              <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Shrey</span>
+          </a>
+          <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+              <li>
+                  <a href="https://github.com/shrey890" class="mr-4 ml-3 hover:underline md:mr-6 ">About</a>
+              </li>
+              
+          
+              <li>
+                  <a href="mailto:shrey90@proton.me" class="hover:underline">Contact</a>
+              </li>
+          </ul>
+      </div>
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://shreyx.netlify.app/" target="_blank" class="hover:underline">Shrey</a>.</span>
+  </div>
+</footer>
+
+
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+  integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script>
+  const APIURL = 'https://api.github.com/users/'
+
+  const main = document.getElementById('main')
+  const form = document.getElementById('form')
+  const search = document.getElementById('search')
+
+  async function getUser(username) {
+    try {
+      const { data } = await axios(APIURL + username)
+
+      createUserCard(data)
+      getRepos(username)
+    } catch (err) {
+      if (err.response.status == 404) {
+        createErrorCard('No profile with this username')
+      }
+    }
+  }
+
+  async function getRepos(username) {
+    try {
+      const { data } = await axios(APIURL + username + '/repos?sort=created')
+
+      addReposToCard(data)
+    } catch (err) {
+      createErrorCard('Problem fetching repos')
+    }
+  }
+
+  function createUserCard(user) {
+    const userID = user.name || user.login
+    const userBio = user.bio ? `<p>${user.bio}</p>` : ''
+    const cardHTML = `
+      <div class="card">
+      <div>
+        <img src="${user.avatar_url}" alt="${user.name}" class="avatar">
+      </div>
+      <div class="user-info">
+        <h2>${userID}</h2>
+        ${userBio}
+        <ul>
+          <li>${user.followers} <strong>Followers</strong></li>
+          <li>${user.following} <strong>Following</strong></li>
+          <li>${user.public_repos} <strong>Repos</strong></li>
+        </ul>
+  
+        <div id="repos"></div>
+      </div>
+    </div>
+    `
+    main.innerHTML = cardHTML
+  }
+
+  function createErrorCard(msg) {
+    const cardHTML = `
+      <div class="card">
+          <h1>${msg}</h1>
+      </div>
+    `
+
+    main.innerHTML = cardHTML
+  }
+
+  function addReposToCard(repos) {
+    const reposEl = document.getElementById('repos')
+
+    repos
+    //   .slice(0, 25)
+      .forEach(repo => {
+        const repoEl = document.createElement('a')
+        repoEl.classList.add('repo')
+        repoEl.href = repo.html_url
+        repoEl.target = '_blank'
+        repoEl.innerText = repo.name
+
+        reposEl.appendChild(repoEl)
+      })
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const user = search.value
+
+    if (user) {
+      getUser(user)
+
+      search.value = ''
+    }
+  })
+
+  //!--------------------
+  const labels = document.querySelectorAll(".form-control label");
+
+  labels.forEach((label) => {
+    label.innerHTML = label.innerText
+      .split("")
+      .map(
+        (letter, idx) =>
+          `<span style="transition-delay:${idx * 50}ms">${letter}</span>`
+      )
+      .join("");
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
+
+</body>
+</html>
